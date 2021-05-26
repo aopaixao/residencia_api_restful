@@ -1,7 +1,7 @@
 server.port						= 8000
 logging.level.root				= INFO
 server.servlet.context-path		= /biblioteca
-server.session.timeout=			= 5
+server.session.timeout			= 5
 spring.jackson.time-zone		= America/Sao_Paulo
 
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
