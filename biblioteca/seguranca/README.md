@@ -11,6 +11,10 @@ spring.security.user.password=123456 <br/>
 
 https://github.com/aopaixao/residencia_api_restful/tree/main/biblioteca/seguranca
 
+<br/><br/>
 
 <h2>Para fazer requisições para a API deverão ser incluídas, além dos dados da requisição, os dados de autenticação do tipo básico.
 Nesses, incluir o name e password setados acima.</h2>
+
+<br/><br/>
+<h3>Caso não deseje utilizar segurança em sua API, basta remover a dependência spring-boot-starter-security no pom.xml</h3>
