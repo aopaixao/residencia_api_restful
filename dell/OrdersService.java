@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 
 import com.residencia.dell.entities.OrderLines;
 import com.residencia.dell.entities.Orders;
+import com.residencia.dell.repositories.OrderLinesRepository;
 import com.residencia.dell.repositories.OrdersRepository;
+import com.residencia.dell.vo.ItemOrderLinesVO;
+import com.residencia.dell.vo.NotaFiscalVO;
 import com.residencia.dell.vo.OrderLinesVO;
 import com.residencia.dell.vo.OrdersVO;
 
@@ -24,6 +27,9 @@ public class OrdersService {
 
 	@Autowired
 	public OrdersRepository ordersRepository;
+	
+	@Autowired
+	public OrderLinesRepository orderLinesRepository;
 
 	public Orders findById(Integer id) {
 		// return alunosRepository.getById(id).getNome();
@@ -85,6 +91,36 @@ public class OrdersService {
 
 		return listOrdersVO;
 	}
+	
+	public NotaFiscalVO emitirNF(Integer orderId) {
+		
+		Orders orders = ordersRepository.getById(orderId);
+		List<OrderLines> listOrderLines = orders.getListOrderLines();
+
+		//List<OrderLines> listOrderLinesII = orderLinesRepository.findByOrders(orders);
+		
+		NotaFiscalVO notaFiscalVO = new NotaFiscalVO();
+		
+		notaFiscalVO.setCustomerFirstName(orders.getCustomer().getFirstName());
+		notaFiscalVO.setCustomerLastName(orders.getCustomer().getLastName());
+		notaFiscalVO.setNetAmount(orders.getNetAmount());
+		notaFiscalVO.setOrderDate(orders.getOrderDate());
+		notaFiscalVO.setOrderId(orders.getOrderId());
+		notaFiscalVO.setTotalAmount(orders.getTotalAmount());
+
+		List<ItemOrderLinesVO> listItemOrderLinesVO = new ArrayList<>();
+		for(OrderLines orderlines : listOrderLines) {
+			ItemOrderLinesVO itemOrderLinesVO = new ItemOrderLinesVO();
+			itemOrderLinesVO.setProdId(orderId);
+			//...
+			listItemOrderLinesVO.add(itemOrderLinesVO);
+		}
+
+		notaFiscalVO.setListItemOrderLinesVO(listItemOrderLinesVO);		
+		
+		return notaFiscalVO;
+	}
+
 
 	private OrdersVO convertEntidadeParaVO(Orders orders) {
 		OrdersVO ordersVO = new OrdersVO();
