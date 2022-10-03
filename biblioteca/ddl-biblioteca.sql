@@ -66,3 +66,10 @@ CREATE TABLE public.livros (
 	codigoeditora int4 NOT NULL,
 	CONSTRAINT livros_pkey PRIMARY KEY (codigolivro)
 );
+
+--Chaves estrangeira
+ALTER TABLE emprestimo ADD FOREIGN KEY (codigolivro) REFERENCES livros(codigolivro);
+
+ALTER TABLE emprestimo ADD FOREIGN KEY (numeromatriculaaluno) REFERENCES alunos(numeromatriculaaluno);
+
+ALTER TABLE livros ADD FOREIGN KEY (codigoeditora) REFERENCES editora(codigoeditora);
