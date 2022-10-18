@@ -30,6 +30,9 @@ CREATE TABLE public.alunos (
 CREATE TABLE public.editora (
 	codigoeditora serial NOT NULL,
 	nome varchar(50) NOT NULL,
+	imagem_nome varchar(255),
+	imagem_filename varchar(255),
+	imagem_url varchar(255),	
 	CONSTRAINT editora_pkey PRIMARY KEY (codigoeditora)
 );
 
@@ -73,3 +76,9 @@ ALTER TABLE emprestimo ADD FOREIGN KEY (codigolivro) REFERENCES livros(codigoliv
 ALTER TABLE emprestimo ADD FOREIGN KEY (numeromatriculaaluno) REFERENCES alunos(numeromatriculaaluno);
 
 ALTER TABLE livros ADD FOREIGN KEY (codigoeditora) REFERENCES editora(codigoeditora);
+
+--Imagens da Editora (para hospedagem no freeimagehost)
+--ALTER TABLE editora ADD COLUMN imagem_nome varchar(255);
+--ALTER TABLE editora ADD COLUMN imagem_filename varchar(255);
+--ALTER TABLE editora ADD COLUMN imagem_url varchar(255);
+
