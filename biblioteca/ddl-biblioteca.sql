@@ -70,6 +70,14 @@ CREATE TABLE public.livros (
 	CONSTRAINT livros_pkey PRIMARY KEY (codigolivro)
 );
 
+CREATE TABLE public.usuario (
+	user_id serial NOT NULL,
+	user_nome varchar(255) NOT NULL,
+	user_email varchar(255) NOT NULL,
+	user_password varchar(100) NOT NULL,
+	PRIMARY KEY (user_id)
+);
+
 --Chaves estrangeira
 ALTER TABLE emprestimo ADD FOREIGN KEY (codigolivro) REFERENCES livros(codigolivro);
 
