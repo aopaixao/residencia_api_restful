@@ -75,8 +75,11 @@ CREATE TABLE public.usuario (
 	user_nome varchar(255) NOT NULL,
 	user_email varchar(255) NOT NULL,
 	user_password varchar(100) NOT NULL,
+	UNIQUE (user_email),
 	PRIMARY KEY (user_id)
 );
+
+--ALTER TABLE usuario ADD CONSTRAINT unique_email UNIQUE(user_email);
 
 --Chaves estrangeira
 ALTER TABLE emprestimo ADD FOREIGN KEY (codigolivro) REFERENCES livros(codigolivro);
