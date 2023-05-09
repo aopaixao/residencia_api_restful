@@ -4,9 +4,9 @@ create database biblioteca;
 
 -- Drop table
 
--- DROP TABLE public.alunos;
+-- DROP TABLE public.aluno;
 
-CREATE TABLE public.alunos (
+CREATE TABLE public.aluno (
 	numeromatriculaaluno serial NOT NULL,
 	nome varchar(100) NOT NULL,
 	datanascimento date NULL,
@@ -60,7 +60,7 @@ CREATE TABLE public.emprestimo (
 
 -- DROP TABLE public.livros;
 
-CREATE TABLE public.livros (
+CREATE TABLE public.livro (
 	codigolivro serial NOT NULL,
 	nomelivro varchar(120) NOT NULL,
 	nomeautor varchar(100) NULL,
@@ -82,11 +82,11 @@ CREATE TABLE public.usuario (
 --ALTER TABLE usuario ADD CONSTRAINT unique_email UNIQUE(user_email);
 
 --Chaves estrangeira
-ALTER TABLE emprestimo ADD FOREIGN KEY (codigolivro) REFERENCES livros(codigolivro);
+ALTER TABLE emprestimo ADD FOREIGN KEY (codigolivro) REFERENCES livro(codigolivro);
 
-ALTER TABLE emprestimo ADD FOREIGN KEY (numeromatriculaaluno) REFERENCES alunos(numeromatriculaaluno);
+ALTER TABLE emprestimo ADD FOREIGN KEY (numeromatriculaaluno) REFERENCES aluno(numeromatriculaaluno);
 
-ALTER TABLE livros ADD FOREIGN KEY (codigoeditora) REFERENCES editora(codigoeditora);
+ALTER TABLE livro ADD FOREIGN KEY (codigoeditora) REFERENCES editora(codigoeditora);
 
 --Imagens da Editora (para hospedagem no freeimagehost)
 --ALTER TABLE editora ADD COLUMN imagem_nome varchar(255);
