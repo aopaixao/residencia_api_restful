@@ -61,7 +61,7 @@ CREATE TABLE public.emprestimo (
 	aluno_matricula int4 NOT NULL,
 	livro_id int4 NOT NULL,
 	data_emprestimo date NOT NULL DEFAULT now(),
-	datae_ntrega date NULL,
+	data_entrega date NULL,
 	valor_emprestimo numeric(10,2) NULL,
 	CONSTRAINT emprestimo_pkey PRIMARY KEY (emprestimo_id)
 );
