@@ -27,8 +27,9 @@ src/main/resources/db/migration/
 ```bash
 V1_0__create_tables.sql
 ```
-
-### OBS: a cada alteração necessária no banco de dados, um novo script SQL, seguindo o padrão <Prefix><Version>__<Description>.sql
+```bash
+OBS: a cada alteração necessária no banco de dados, um novo script SQL, seguindo o padrão <Prefix><Version>__<Description>.sql
+```
 
 # Sobre
 
