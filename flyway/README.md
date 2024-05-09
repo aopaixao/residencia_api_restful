@@ -22,13 +22,7 @@ spring.flyway.baseline-on-migrate=true
 src/main/resources/db/migration/
 ```
 
-## Incluir na pasta acima o script
-
-```bash
-V1_0__create_tables.sql
-```
-
-## Incluir na pasta acima o script
+## Inclusão do(s) script(s) de migration (na pasta acima)
 
 ```bash
 V1_0__create_tables.sql
