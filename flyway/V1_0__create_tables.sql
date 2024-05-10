@@ -86,6 +86,7 @@ CREATE TABLE public.usuario (
 	user_nome varchar(255) NOT NULL,
 	user_email varchar(255) NOT NULL,
 	user_password varchar(100) NOT NULL,
+	perfil_id int4 NOT NULL,
 	UNIQUE (user_email),
 	PRIMARY KEY (user_id)
 );
@@ -93,6 +94,8 @@ CREATE TABLE public.usuario (
 --ALTER TABLE usuario ADD CONSTRAINT unique_email UNIQUE(user_email);
 
 --Chaves estrangeira
+ALTER TABLE usuario ADD FOREIGN KEY (perfil_id) REFERENCES perfil(perfil_id);
+
 ALTER TABLE emprestimo ADD FOREIGN KEY (livro_id) REFERENCES livro(livro_id);
 
 ALTER TABLE emprestimo ADD FOREIGN KEY (aluno_matricula) REFERENCES aluno(aluno_matricula);
