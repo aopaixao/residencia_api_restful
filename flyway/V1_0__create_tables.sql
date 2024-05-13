@@ -2,14 +2,14 @@
 
 -- Drop table
 
--- DROP TABLE public.usuario;
+-- DROP TABLE public.perfil;
 
---CREATE TABLE public.perfil (
---	perfil_id serial NOT NULL,
---	nome varchar(100) NOT NULL,
---	descricao varchar(200) NOT NULL,
---	PRIMARY KEY (perfil_id)
---);
+CREATE TABLE public.perfil (
+	perfil_id serial NOT NULL,
+	nome varchar(100) NOT NULL,
+	descricao varchar(200) NOT NULL,
+	PRIMARY KEY (perfil_id)
+);
 
 
 -- public.alunos definition
@@ -82,15 +82,15 @@ CREATE TABLE public.livro (
 	CONSTRAINT livros_pkey PRIMARY KEY (livro_id)
 );
 
---CREATE TABLE public.usuario (
---	user_id serial NOT NULL,
---	user_nome varchar(255) NOT NULL,
---	user_email varchar(255) NOT NULL,
---	user_password varchar(100) NOT NULL,
---	perfil_id int4 NOT NULL,
---	UNIQUE (user_email),
---	PRIMARY KEY (user_id)
---);
+CREATE TABLE public.usuario (
+	user_id serial NOT NULL,
+	user_nome varchar(255) NOT NULL,
+	user_email varchar(255) NOT NULL,
+	user_password varchar(100) NOT NULL,
+	perfil_id int4 NOT NULL,
+	UNIQUE (user_email),
+	PRIMARY KEY (user_id)
+);
 
 --ALTER TABLE usuario ADD CONSTRAINT unique_email UNIQUE(user_email);
 
